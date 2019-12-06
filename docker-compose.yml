@@ -49,7 +49,8 @@ volumes:
     driver: ${VOLUMES_DRIVER}
 
 services:
-
+### OpenProject ##################################
+#     openproject:
 ### Workspace Utilities ##################################
     workspace:
       build:
@@ -262,7 +263,7 @@ services:
         - "dockerhost:${DOCKER_HOST_IP}"
       networks:
         - backend
-
+      
 ### NGINX Server #########################################
     nginx:
       build:
@@ -1057,8 +1058,6 @@ services:
       volumes:
         - ${DATA_PATH_HOST}/portainer_data:/data
         - /var/run/docker.sock:/var/run/docker.sock
-      extra_hosts:
-        - "dockerhost:${DOCKER_HOST_IP}"
       ports:
         - 9010:9000
       networks:
